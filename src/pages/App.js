@@ -8,7 +8,7 @@ class App extends Component {
     render() {
         return (
             <div className="big-start">
-                <FullScreenSplash image={ExtraLife_blue} />
+                <FullScreenSplash image={ExtraLife_blue} animationOut='flipOutX' delayTime={2000} />
             </div>
         )
     }

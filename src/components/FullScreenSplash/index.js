@@ -20,38 +20,43 @@ class FullScreenSplash extends Component {
         altText: PropTypes.string,
         className: PropTypes.string,
         animationIn: PropTypes.string,
-        animationOut: PropTypes.string
+        animationOut: PropTypes.string,
+        delayTime: PropTypes.number
     }
     static defaultProps = {
         isVisible: true,
         altText: '',
         className: '',
         animationIn: 'bounceInDown',
-        animationOut: 'bounceOutDown'
+        animationOut: 'bounceOutDown',
+        delayTime: 5000
     }
     constructor(props) {
         super(props);
+        this.state = { isVisible: props.isVisible };
         this.delayState = this.delayState.bind(this);
     }
     componentDidMount() {
         this.delayState();
     }
     delayState() {
+        const { delayTime } = this.props;
+        let newState = this.state;
         setTimeout(() => {
-            this.setState({
-            isVisible: false
-          })
-        }, 200);
+            newState.isVisible = false
+            console.log(newState.isVisible)
+            this.setState(newState);
+          }, delayTime);
     }
     render() {
         const {
-            isVisible,
             image,
             altText,
             className,
             animationIn,
             animationOut
-        } = this.props
+        } = this.props;
+        const { isVisible } = this.state;
         return (
             <StyledSplash>
             <Animated animationIn={animationIn} animationOut={animationOut} isVisible={isVisible}>
