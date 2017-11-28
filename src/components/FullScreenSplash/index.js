@@ -4,7 +4,7 @@ import { Animated } from 'react-animated-css';
 import styled from 'styled-components';
 
 const StyledSplash = styled.div`
-position: relative;
+position: absolute;
 margin-left: auto;
 margin-right: auto;    
 width: 100%;
@@ -44,7 +44,6 @@ class FullScreenSplash extends Component {
         let newState = this.state;
         setTimeout(() => {
             newState.isVisible = false
-            console.log(newState.isVisible)
             this.setState(newState);
           }, delayTime);
     }
@@ -59,11 +58,11 @@ class FullScreenSplash extends Component {
         const { isVisible } = this.state;
         return (
             <StyledSplash>
-            <Animated animationIn={animationIn} animationOut={animationOut} isVisible={isVisible}>
-                <div>
-                    <img className={className} src = {image} alt={altText}/>
-                </div>
-            </Animated>
+                <Animated animationIn={animationIn} animationOut={animationOut} isVisible={isVisible}>
+                    <div>
+                        <img className={className} src = {image} alt={altText}/>
+                    </div>
+                </Animated>
             </StyledSplash>
         )
     }
