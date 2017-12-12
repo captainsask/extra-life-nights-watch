@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import { Animated } from 'react-animated-css';
 
 const StyledHeader = styled.div`
-    height: 25%;
-    position: absolute;
-    background-color: red;
+    height: 20%;
+    position: relative;
+    background-color: #26c2eb;
     width: 100%;
     display: inline-block;
 `;

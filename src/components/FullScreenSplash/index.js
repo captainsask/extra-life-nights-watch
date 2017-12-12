@@ -4,13 +4,19 @@ import { Animated } from 'react-animated-css';
 import styled from 'styled-components';
 
 const StyledSplash = styled.div`
+z-index: 1000;
 position: absolute;
 margin-left: auto;
 margin-right: auto;    
 width: 100%;
-max-width: 1200px;
-display: inherit;
+display: block;
 margin-top:  15vh;
+`;
+
+const StyledImage = styled.img`
+    margin-left: auto;
+    margin-right: auto;  
+    display: block;
 `;
 
 class FullScreenSplash extends Component {
@@ -60,7 +66,7 @@ class FullScreenSplash extends Component {
             <StyledSplash>
                 <Animated animationIn={animationIn} animationOut={animationOut} isVisible={isVisible}>
                     <div>
-                        <img className={className} src = {image} alt={altText}/>
+                        <StyledImage className={className} src = {image} alt={altText}/>
                     </div>
                 </Animated>
             </StyledSplash>
